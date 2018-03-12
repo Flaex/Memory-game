@@ -20,3 +20,4 @@ The css controls animations and graphic style, could be replaced by another temp
 - Function cardClicked holds two events. One for initialize the timer and a second one with a function called evalCards for comparing cards' content and status, in this event is also executed function the modal window when users had ended the game.
 - Function turnProcessor will register turns and manage the rating logic to assign stars to user's performance.
 - Function newOrder will render a new deck from the randomized cards array.
+- Added to git hub repo
