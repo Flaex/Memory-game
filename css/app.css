@@ -1,0 +1,274 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #ffffff url('../img/geometry2.png');
+  /* Background pattern from Subtle Patterns */
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+  width: 660px;
+  min-height: 680px;
+  background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+  padding: 32px;
+  border-radius: 10px;
+  box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 3em;
+}
+
+.deck .card {
+  height: 125px;
+  width: 125px;
+  background: #2e3d49;
+  font-size: 0;
+  color: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+  transform: rotateY(360deg);
+}
+
+.deck .card.open {
+  transform: rotateY(0deg);
+  animation: uncover .2s;
+  animation-direction: alternate;
+  background: #02b3e4;
+}
+
+@keyframes uncover {
+  0% {
+    transform: rotateY(0);
+    background: #2e3d49;
+    color: #2e3d49;
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.deck .card.show {
+  font-size: 33px;
+}
+
+.deck .card.match {
+  transform: scale(1, 1);
+  animation: same .15s;
+  background: #02ccba;
+  font-size: 33px;
+}
+
+@keyframes same {
+  0% {
+    transform: scale(0, 0);
+  }
+  50% {
+    transform: scale(0.5, 0.5);
+  }
+  100% {
+    transform: scale(0, 0)
+  }
+}
+
+.deck .card.nomatch {
+  transform: scale(1, 1) rotateY(360deg);
+  animation: different .45s;
+  background: #2e3d49;
+  color: #2e3d49;
+  font-size: 33px;
+}
+
+@keyframes different {
+  0% {
+    transform: scale(0, 0) translate(0, 5px);
+    background: #D25237;
+    color: #fff
+  }
+  25% {
+    transform: scale(1.05, 1.05) translate(-5px, 0px);
+    background: #D25237;
+    color: #fff
+  }
+  50% {
+    transform: scale(0, 0) translate(0, 5px);
+    background: #D25237;
+    color: #fff
+  }
+  75% {
+    transform: rotateY(360deg);
+  }
+  100% {
+    transform: rotateY(0);
+  }
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+  text-align: left;
+  width: 660px;
+  margin-bottom: 10px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  color: #999;
+}
+
+.score-panel .stars {
+  float: left;
+  padding: 0;
+  display: inline-block;
+  margin: 0 5px 0 0;
+}
+
+.score-panel .stars li {
+  list-style: none;
+  display: inline-block;
+  color: gold;
+}
+
+.score-panel span.moves {
+
+}
+
+.score-panel .restart {
+  float: right;
+  cursor: pointer;
+  padding-top: 1%;
+}
+
+.score-panel span.moves::after {
+  content: " moves";
+}
+
+.score-panel .showTime {
+  float: left;
+    padding-left: 15px;
+}
+
+.score-panel .timeIcon {
+  float:left;
+}
+
+.score-panel .timer {
+  float: left;
+  padding-left: 5px;
+}
+
+.final-score {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  font-weight: 100;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  z-index: 1000;
+  text-shadow: 2px 2px 3px #444;
+  text-align: center;
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: .1s;
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.final-score ul {
+  background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+  color: white;
+  font-weight: 100;
+  margin: 33.3333333vh auto;
+  width: 30%;
+  border-radius: 10px;
+  padding: 1%;
+}
+
+.final-score .stars li {
+  list-style: none;
+  display: inline-block;
+  color: gold;
+  display: block;
+  float: left;
+  ;
+  width: 33.33333333333333%;
+}
+
+.final-score .stars li.one i {
+  float: right;
+}
+
+.final-score .stars li.three i {
+  float: left;
+}
+
+.final-score div.moves {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.8em;
+  color: white;
+  clear: both;
+}
+
+.final-score div.moves::before {
+  content: "You have made ";
+}
+
+.final-score div.moves::after {
+  content: " moves";
+}
+
+.final-score .restart {
+  width: 40%;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.6em;
+  color: white;
+  margin: 2% auto;
+  padding: 3%;
+  background-color: DodgerBlue;
+  border-radius: 5px;
+}
