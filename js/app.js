@@ -29,11 +29,11 @@ function shuffle(array) {
 //Check if all cards have been matched
 function cardClicked() {
   // Event for start timer counter once
-  $('.deck').one( "click", function() {
+  $('.start').one( "click", function() {
     let start = new Date;
     let ticker = setInterval(clock, 1000);
     function clock() {
-      $('.timer').text(Math.round((new Date - start) / 1000, 0) + " sec");
+      $('.timer').text(Math.round((new Date - start) / 1000, 0));
     };
     // Event listener
     $('.deck').on('click', 'li', function(e) {
@@ -61,8 +61,8 @@ function cardClicked() {
               elementContainer.addClass('match');
               openCards = [];
               paired++;
-              if (paired == 8) {
-                $('body').prepend('<div class="final-score"><ul class="stars"><h5>Cool! You have finish in <div class="elapsed"></div></h5><li class="one"><i class="fa fa-star-o"></i></li><li class="two"><i class="fa fa-star-o"></i></li><li class="three"><i class="fa fa-star-o"></i></li><div class="moves"></div><div class="restart">Play again <i class="fa fa-repeat"></ul></div>');
+              if (paired == 2) {
+                $('body').prepend('<div class="final-score"><ul class="stars"><h5>Cool! You have finish in <div class="elapsed"></div></h5><li class="one"><i class="fa fa-star-o"></i></li><li class="two"><i class="fa fa-star-o"></i></li><li class="three"><i class="fa fa-star-o"></i></li><div class="moves"></div><div class="restart">Close <i class="fa fa-times"></ul></div>');
                 $('.elapsed').text(Math.round((new Date - start) / 1000, 0) + ' seconds');
                 clearInterval(ticker);
                 restart();

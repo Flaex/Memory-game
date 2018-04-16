@@ -144,17 +144,18 @@ h1 {
 .score-panel {
   text-align: left;
   width: 660px;
-  margin-bottom: 10px;
   font-family: 'Open Sans', sans-serif;
-  font-size: 1.2em;
   color: #999;
 }
 
 .score-panel .stars {
-  float: left;
-  padding: 0;
+  padding: 1%;
+  margin-top: 0.5%;
   display: inline-block;
-  margin: 0 5px 0 0;
+  float: right;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
 }
 
 .score-panel .stars li {
@@ -163,14 +164,14 @@ h1 {
   color: gold;
 }
 
-.score-panel span.moves {
-
-}
-
 .score-panel .restart {
-  float: right;
+  display: inline-block;
   cursor: pointer;
-  padding-top: 1%;
+  padding: 1%;
+  font-size: 0.8em;
+  background-color:#ddd ;
+  border-radius: 5px;
+  color: #777;
 }
 
 .score-panel span.moves::after {
@@ -178,24 +179,29 @@ h1 {
 }
 
 .score-panel .showTime {
-  float: left;
-    padding-left: 15px;
+  float: right;
+  display: inline-block;
+  margin-top: 0.5%;
+  margin-left: 1%;
+  padding: 1%;
+  background-color: DodgerBlue;
+  border-radius: 20px;
+  color: white;
+
 }
 
 .score-panel .timeIcon {
-  float:left;
+  display: inline-block;
 }
 
 .score-panel .timer {
-  float: left;
-  padding-left: 5px;
+  display: inline-block;
 }
 
 .final-score {
   width: 100%;
   height: 100%;
   margin-bottom: 10px;
-  font-size: 1.5em;
   font-weight: 100;
   background-color: rgba(0, 0, 0, 0.8);
   position: absolute;
@@ -221,20 +227,18 @@ h1 {
 .final-score ul {
   background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
   color: white;
-  font-weight: 100;
   margin: 33.3333333vh auto;
   width: 30%;
   border-radius: 10px;
   padding: 1%;
 }
 
+.stars h5 { font-size: 1.0em}
+
 .final-score .stars li {
   list-style: none;
   display: inline-block;
   color: gold;
-  display: block;
-  float: left;
-  ;
   width: 33.33333333333333%;
 }
 
@@ -248,7 +252,7 @@ h1 {
 
 .final-score div.moves {
   font-family: 'Open Sans', sans-serif;
-  font-size: 0.8em;
+
   color: white;
   clear: both;
 }
@@ -261,11 +265,21 @@ h1 {
   content: " moves";
 }
 
+.start {
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.8em;
+  color: white;
+  margin: 0 auto;
+  padding: 1%;
+  background-color: DodgerBlue;
+  border-radius: 5px;
+}
+
 .final-score .restart {
   width: 40%;
   cursor: pointer;
   font-family: 'Open Sans', sans-serif;
-  font-size: 0.6em;
   color: white;
   margin: 2% auto;
   padding: 3%;
