@@ -61,7 +61,7 @@ function cardClicked() {
               elementContainer.addClass('match');
               openCards = [];
               paired++;
-              if (paired == 2) {
+              if (paired == 8) {
                 $('body').prepend('<div class="final-score"><ul class="stars"><h5>Cool! You have finish in <div class="elapsed"></div></h5><li class="one"><i class="fa fa-star-o"></i></li><li class="two"><i class="fa fa-star-o"></i></li><li class="three"><i class="fa fa-star-o"></i></li><div class="moves"></div><div class="restart">Close <i class="fa fa-times"></ul></div>');
                 $('.elapsed').text(Math.round((new Date - start) / 1000, 0) + ' seconds');
                 clearInterval(ticker);
